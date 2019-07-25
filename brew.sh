@@ -1,15 +1,18 @@
 #!/usr/bin/env bash
 
-STEP=1
-NB_OF_STEPS=1
+STEP=0
+NB_OF_STEPS=6
 
+STEP=$(($STEP + 1))
 echo "--- Step ${STEP}/${NB_OF_STEPS}: Installing brew"
 /usr/bin/ruby -e "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/master/install)"
 
+STEP=$(($STEP + 1))
 echo "--- Step ${STEP}/${NB_OF_STEPS}: Updating brew"
 brew update
 brew upgrade
 
+STEP=$(($STEP + 1))
 echo "--- Step ${STEP}/${NB_OF_STEPS}: Saving Homebrew’s installed location"
 BREW_PREFIX=$(brew --prefix)
 
@@ -47,12 +50,14 @@ DEPENDENCIES=(
   'zsh-completions'
 )
 
+STEP=$(($STEP + 1))
 echo "--- Step ${STEP}/${NB_OF_STEPS}: Installing Homebrew dependencies"
 for CASK in "${CASKS[@]}"
 do
   brew cask install ${CASK}
 done
 
+STEP=$(($STEP + 1))
 echo "--- Step ${STEP}/${NB_OF_STEPS}: Installing softwares (cask)"
 for DEPENDENCY in "${DEPENDENCIES[@]}"
 do
@@ -61,4 +66,7 @@ done
 
 chsh -s /bin/zsh
 
+STEP=$(($STEP + 1))
+echo "--- Step ${STEP}/${NB_OF_STEPS}: Installing oh-my-zsh"
+sh -c "$(curl -fsSL https://raw.githubusercontent.com/robbyrussell/oh-my-zsh/master/tools/install.sh)"
 ln -s ${BASEDIR}/config/.zshrc ~/.zshrc
