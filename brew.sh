@@ -48,12 +48,12 @@ DEPENDENCIES=(
 echo "--- Step ${STEP}/${NB_OF_STEPS}: Installing Homebrew dependencies"
 for CASK in "${CASKS[@]}"
 do
-  brew install CASK
+  brew install ${CASK}
 done
 
 echo "--- Step ${STEP}/${NB_OF_STEPS}: Installing softwares (cask)"
 for DEPENDENCY in "${DEPENDENCIES[@]}"
 do
-  brew install DEPENDENCY
+  brew install ${DEPENDENCY}
 done
 
