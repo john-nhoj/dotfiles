@@ -7,6 +7,7 @@ STEP=$(($STEP + 1))
 echo "--- Step ${STEP}/${NB_OF_STEPS}: Installing brew"
 if [ ! $(brew --version) ]; then
   /usr/bin/ruby -e "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/master/install)"
+fi
 
 STEP=$(($STEP + 1))
 echo "--- Step ${STEP}/${NB_OF_STEPS}: Updating brew"
@@ -64,6 +65,8 @@ for DEPENDENCY in "${DEPENDENCIES[@]}"
 do
   brew install ${DEPENDENCY}
 done
+
+brew cleanup
 
 chsh -s /bin/zsh
 
