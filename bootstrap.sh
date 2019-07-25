@@ -17,12 +17,14 @@ function doIt() {
 }
 
 if [ "$1" == "--force" -o "$1" == "-f" ]; then
-	doIt;
+	# doIt;
+  echo "forced me..."
 else
 	read -p "This may overwrite existing files in your home directory. Are you sure? (y/n) " -n 1;
 	echo "";
 	if [[ $REPLY =~ ^[Yy]$ ]]; then
-		doIt;
+		# doIt;
+    echo "yay..."
 	fi;
 fi;
 unset doIt;
