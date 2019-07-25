@@ -69,4 +69,4 @@ chsh -s /bin/zsh
 STEP=$(($STEP + 1))
 echo "--- Step ${STEP}/${NB_OF_STEPS}: Installing oh-my-zsh"
 sh -c "$(curl -fsSL https://raw.githubusercontent.com/robbyrussell/oh-my-zsh/master/tools/install.sh)"
-ln -s ${BASEDIR}/config/.zshrc ~/.zshrc
+ln -s ${BASEDIR}/.zshrc ~/.zshrc
