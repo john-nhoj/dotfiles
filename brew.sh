@@ -34,7 +34,7 @@ CASKS=(
   'spotify'
   'telegram'
   'tunnelblick'
-  'whatsapp'  
+  'whatsapp'
 )
 
 DEPENDENCIES=(
@@ -43,12 +43,14 @@ DEPENDENCIES=(
   'python'
   'postgres'
   'yarn'
+  'zsh'
+  'zsh-completions'
 )
 
 echo "--- Step ${STEP}/${NB_OF_STEPS}: Installing Homebrew dependencies"
 for CASK in "${CASKS[@]}"
 do
-  brew install ${CASK}
+  brew cask install ${CASK}
 done
 
 echo "--- Step ${STEP}/${NB_OF_STEPS}: Installing softwares (cask)"
@@ -57,3 +59,6 @@ do
   brew install ${DEPENDENCY}
 done
 
+chsh -s /bin/zsh
+
+ln -s ${BASEDIR}/config/.zshrc ~/.zshrc
