@@ -5,7 +5,8 @@ NB_OF_STEPS=6
 
 STEP=$(($STEP + 1))
 echo "--- Step ${STEP}/${NB_OF_STEPS}: Installing brew"
-/usr/bin/ruby -e "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/master/install)"
+if [ ! $(brew --version) ]; then
+  /usr/bin/ruby -e "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/master/install)"
 
 STEP=$(($STEP + 1))
 echo "--- Step ${STEP}/${NB_OF_STEPS}: Updating brew"
