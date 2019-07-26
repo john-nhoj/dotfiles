@@ -1,9 +1,11 @@
 #!/usr/bin/env bash
 
+BASEDIR="$(cd "$(dirname "${BASH_SOURCE[0]}")" && pwd)"
+
 function doIt() {
 	for file in `ls -A | egrep -vi '.sh|.git|README|.macos'`
   do
-    ln -s $(dirname "${BASH_SOURCE}")${BASEDIR}/${file} ~/${file}
+    ln -s ${BASEDIR}/${file} ~/${file}
     source ~/.zshrc
   done
 }

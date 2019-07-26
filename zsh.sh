@@ -1,5 +1,6 @@
 #!/usr/bin/env bash
 
+BASEDIR="$(cd "$(dirname "${BASH_SOURCE[0]}")" && pwd)"
 STEP=0
 NB_OF_STEPS=4
 RED="\033[1;31m"
