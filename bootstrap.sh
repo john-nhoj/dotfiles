@@ -1,18 +1,11 @@
 #!/usr/bin/env bash
 
-cd "$(dirname "${BASH_SOURCE}")";
-
-git fetch;
-git checkout origin/master;
-
 function doIt() {
-	rsync --exclude ".git/" \
-		--exclude ".DS_Store" \
-		--exclude "bootstrap.sh" \
-		--exclude "README.md" \
-		--exclude "LICENSE-MIT.txt" \
-		-avh --no-perms . ~;
-	source ~/.bash_profile;
+	for file in `ls -A | egrep -vi '\b.sh\b|.git|README|.macos'`
+  do
+    ln -s $(dirname "${BASH_SOURCE}")${BASEDIR}/${file} ~/${file}
+    source ~/.zshrc
+  done
 }
 
 if [ "$1" == "--force" -o "$1" == "-f" ]; then
