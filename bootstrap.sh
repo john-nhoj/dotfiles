@@ -7,7 +7,7 @@ NOCOLOR="\033[0m"
 echo -e "${RED}==> Linking root configurations${NOCOLOR}"
 
 function doIt() {
-	for file in `ls -A | egrep -vi '\b.sh\b|.git|README|.macos|com.googlecode.iterm2.plist|tmp'`
+	for file in `ls -A | egrep -vi '.sh|.git|README|.macos|com.googlecode.iterm2.plist|tmp'`
   do
     ln -s ${BASEDIR}/${file} ~/${file}
   done
