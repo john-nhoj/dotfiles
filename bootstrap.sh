@@ -10,9 +10,10 @@ echo -e "${RED}==> Linking root configurations${NOCOLOR}"
 function doIt() {
 	for file in `ls -A | egrep -vi '.sh|.git|README|.macos|com.googlecode.iterm2.plist|tmp'`
   do
-    ln -s ${BASEDIR}/${file} ~/${file}
+    ln -sF ${BASEDIR}/${file} ~/${file}
     source ~/.zshrc
   done
+  ln -sF ${BASEDIR}/com.googlecode.iterm2.plist ~/Library/Preferences/com.googlecode.iterm2.plist
 }
 
 if [ "$1" == "--force" -o "$1" == "-f" ]; then
@@ -24,4 +25,3 @@ else
 		doIt;
 	fi;
 fi;
-unset doIt;
