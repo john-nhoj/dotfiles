@@ -27,3 +27,8 @@ git clone https://github.com/powerline/fonts tmp/fonts
 STEP=$(($STEP + 1))
 echo -e "${YELLOW}--- Step ${STEP}/${NB_OF_STEPS}: Installing oh-my-zsh${NOCOLOR}"
 sh -c "$(curl -fsSL https://raw.githubusercontent.com/robbyrussell/oh-my-zsh/master/tools/install.sh | grep -v '\bexec zsh -l\b')"
+
+ln -sF ${BASEDIR}/com.googlecode.iterm2.plist ~/Library/Preferences/com.googlecode.iterm2.plist
+
+open -A "iTerm2"
+killall "Terminal"
