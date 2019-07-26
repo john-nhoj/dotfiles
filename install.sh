@@ -7,4 +7,4 @@ mkdir tmp
 source bootstrap.sh
 ./.macos
 
-rm-rf tmp
+rm -rf tmp

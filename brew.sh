@@ -50,7 +50,7 @@ CASKS=(
 DEPENDENCIES=(
 #  'awscli'
 #  'heroku/brew/heroku'
- 'python'
+  'python'
 #  'postgres'
 #  'yarn'
 )
