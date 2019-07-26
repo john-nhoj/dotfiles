@@ -11,13 +11,13 @@ echo -e "${RED}==> Oh-My-Zsh + iTerm + zsh${NOCOLOR}"
 
 STEP=$(($STEP + 1))
 echo -e "${YELLOW}--- Step ${STEP}/${NB_OF_STEPS}: Installing zsh${NOCOLOR}"
-ln -s ${BASEDIR}/.zshrc ~/.zshrc
+ln -sF ${BASEDIR}/.zshrc ~/.zshrc
 brew install zsh
 brew install zsh-completions
 
 STEP=$(($STEP + 1))
 echo -e "${YELLOW}--- Step ${STEP}/${NB_OF_STEPS}: Installing Powerline${NOCOLOR}"
-python -m pip install --user powerline-status
+pip3 install --user powerline-status
 
 STEP=$(($STEP + 1))
 echo -e "${YELLOW}--- Step ${STEP}/${NB_OF_STEPS}: Installing Powerline Fonts${NOCOLOR}"

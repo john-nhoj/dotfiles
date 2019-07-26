@@ -258,7 +258,7 @@
 	<key>JobName</key>
 	<true/>
 	<key>LoadPrefsFromCustomFolder</key>
-	<true/>
+	<false/>
 	<key>NSNavLastRootDirectory</key>
 	<string>~/Documents/Projects/dotfiles</string>
 	<key>NSNavLastUserSetHideExtensionButtonState</key>

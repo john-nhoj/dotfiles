@@ -8,11 +8,11 @@ NOCOLOR="\033[0m"
 
 echo -e "${YELLOW}==> Brew${NOCOLOR}"
 
-# STEP=$(($STEP + 1))
-# echo -e "${YELLOW}--- Step ${STEP}/${NB_OF_STEPS}: Installing brew${NOCOLOR}"
-# if [ ! $(brew --version) ]; then
-#   /usr/bin/ruby -e "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/master/install)"
-# fi
+STEP=$(($STEP + 1))
+echo -e "${YELLOW}--- Step ${STEP}/${NB_OF_STEPS}: Installing brew${NOCOLOR}"
+if [ ! $(brew --version) ]; then
+  /usr/bin/ruby -e "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/master/install)"
+fi
 
 STEP=$(($STEP + 1))
 echo -e "${YELLOW}--- Step ${STEP}/${NB_OF_STEPS}: Updating brew${NOCOLOR}"
@@ -47,13 +47,13 @@ CASKS=(
 #  'whatsapp'
 )
 
-#DEPENDENCIES=(
+DEPENDENCIES=(
 #  'awscli'
 #  'heroku/brew/heroku'
-#  'python'
+ 'python'
 #  'postgres'
 #  'yarn'
-#)
+)
 
 STEP=$(($STEP + 1))
 echo -e "${YELLOW}--- Step ${STEP}/${NB_OF_STEPS}: Installing softwares (cask)${NOCOLOR}"
@@ -62,11 +62,11 @@ do
   brew cask install ${CASK}
 done
 
-# STEP=$(($STEP + 1))
-# echo -e "${YELLOW}--- Step ${STEP}/${NB_OF_STEPS}: Installing Homebrew dependencies${NOCOLOR}"
-# for DEPENDENCY in "${DEPENDENCIES[@]}"
-# do
-#   brew install ${DEPENDENCY}
-# done
+STEP=$(($STEP + 1))
+echo -e "${YELLOW}--- Step ${STEP}/${NB_OF_STEPS}: Installing Homebrew dependencies${NOCOLOR}"
+for DEPENDENCY in "${DEPENDENCIES[@]}"
+do
+  brew install ${DEPENDENCY}
+done
 
 brew cleanup
