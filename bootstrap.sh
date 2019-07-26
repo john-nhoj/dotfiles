@@ -1,7 +1,7 @@
 #!/usr/bin/env bash
 
 function doIt() {
-	for file in `ls -A | egrep -vi '\b.sh\b|.git|README|.macos'`
+	for file in `ls -A | egrep -vi '.sh|.git|README|.macos'`
   do
     ln -s $(dirname "${BASH_SOURCE}")${BASEDIR}/${file} ~/${file}
     source ~/.zshrc

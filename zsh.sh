@@ -1,7 +1,7 @@
 #!/usr/bin/env bash
 
 STEP=0
-NB_OF_STEPS=2
+NB_OF_STEPS=4
 RED="\033[1;31m"
 YELLOW="\033[01;33m"
 NOCOLOR="\033[0m"
