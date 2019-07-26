@@ -1,7 +1,7 @@
 #!/usr/bin/env bash
 
 STEP=0
-NB_OF_STEPS=6
+NB_OF_STEPS=7
 RED="\033[1;31m"
 YELLOW="\033[01;33m"
 NOCOLOR="\033[0m"
@@ -56,6 +56,10 @@ DEPENDENCIES=(
 #  'yarn'
 )
 
+FONTS=(
+  'font-fira-code'
+)
+
 STEP=$(($STEP + 1))
 echo -e "${YELLOW}--- Step ${STEP}/${NB_OF_STEPS}: Installing softwares (cask)${NOCOLOR}"
 for CASK in "${CASKS[@]}"
@@ -68,6 +72,14 @@ echo -e "${YELLOW}--- Step ${STEP}/${NB_OF_STEPS}: Installing Homebrew dependenc
 for DEPENDENCY in "${DEPENDENCIES[@]}"
 do
   brew install ${DEPENDENCY}
+done
+
+STEP=$(($STEP + 1))
+echo -e "${YELLOW}--- Step ${STEP}/${NB_OF_STEPS}: Installing fonts${NOCOLOR}"
+brew tap homebrew/cask-fonts
+for FONT in "${FONTS[@]}"
+do
+  brew cask install ${FONT}
 done
 
 brew cleanup
