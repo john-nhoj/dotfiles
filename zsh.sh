@@ -15,6 +15,8 @@ echo -e "${YELLOW}--- Step ${STEP}/${NB_OF_STEPS}: Installing zsh${NOCOLOR}"
 brew install zsh
 brew install zsh-completions
 
+chsh -s /bin/zsh
+
 STEP=$(($STEP + 1))
 echo -e "${YELLOW}--- Step ${STEP}/${NB_OF_STEPS}: Installing Powerline${NOCOLOR}"
 pip3 install --user powerline-status
@@ -24,10 +26,11 @@ echo -e "${YELLOW}--- Step ${STEP}/${NB_OF_STEPS}: Installing Powerline Fonts${N
 git clone https://github.com/powerline/fonts tmp/fonts
 ./tmp/fonts/install.sh
 
-ln -sF ${BASEDIR}/.zshrc ~/.zshrc
-ln -sF ${BASEDIR}/com.googlecode.iterm2.plist ~/Library/Preferences/com.googlecode.iterm2.plist
-
 STEP=$(($STEP + 1))
 echo -e "${YELLOW}--- Step ${STEP}/${NB_OF_STEPS}: Installing oh-my-zsh${NOCOLOR}"
 sh -c "$(curl -fsSL https://raw.githubusercontent.com/robbyrussell/oh-my-zsh/master/tools/install.sh | grep -v '\bexec zsh -l\b')"
 
+ln -sF ${BASEDIR}/.zshrc ~/.zshrc
+ln -sF ${BASEDIR}/com.googlecode.iterm2.plist ~/Library/Preferences/com.googlecode.iterm2.plist
+
+source ~/.zshrc
