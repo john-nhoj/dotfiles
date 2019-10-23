@@ -64,7 +64,7 @@ ZSH_THEME="robbyrussell"
 # Custom plugins may be added to ~/.oh-my-zsh/custom/plugins/
 # Example format: plugins=(rails git textmate ruby lighthouse)
 # Add wisely, as too many plugins slow down shell startup.
-plugins=(aws django docker-compose docker git node npm pip python yarn)
+plugins=(aws django docker-compose docker git node npm pip python yarn zsh-autosuggestions zsh-syntax-highlighting)
 
 source $ZSH/oh-my-zsh.sh
 
@@ -107,3 +107,5 @@ export CPLUS_INCLUDE_PATH=/usr/local/include
 
 export PYTHONPATH=$PYTHONPATH:~/Documents/aalto/declarative_programming/r08-bucket/z3/bin/python
 export LD_LIBRARY_PATH=$LD_LIBRARY_PATH:~/Documents/aalto/declarative_programming/r08-bucket/z3/bin
+export CONTENTREPO_USER=user
+export CONTENTREPO_PASSWORD=crush-aim-artery-outside-yellow

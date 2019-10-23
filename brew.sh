@@ -46,14 +46,20 @@ CASKS=(
 #  'telegram'
 #  'tunnelblick'
 #  'whatsapp'
+#  'dozer'
+#  'yabai'
+#  'skhd'
 )
 
 DEPENDENCIES=(
-#  'awscli'
-#  'heroku/brew/heroku'
+  'awscli'
+  'heroku/brew/heroku'
   'python'
-#  'postgres'
-#  'yarn'
+  'postgres'
+  'yarn'
+  'watchman'
+  'node'
+  'react-native-cli'
 )
 
 FONTS=(
@@ -81,5 +87,9 @@ for FONT in "${FONTS[@]}"
 do
   brew cask install ${FONT}
 done
+
+STEP=$(($STEP + 1))
+echo -e "${YELLOW}--- Step ${STEP}/${NB_OF_STEPS}: Starting services${NOCOLOR}"
+brew services start yabai skhd
 
 brew cleanup
