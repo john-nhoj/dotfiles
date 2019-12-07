@@ -102,10 +102,5 @@ export NVM_DIR="$HOME/.nvm"
 [ -s "$NVM_DIR/bash_completion" ] && \. "$NVM_DIR/bash_completion"  # This loads nvm bash_completion
 
 export PATH=$PATH:~/Applications/flutter/bin
-export LIBRARY_PATH=/usr/local/lib
-export CPLUS_INCLUDE_PATH=/usr/local/include
 
-export PYTHONPATH=$PYTHONPATH:~/Documents/aalto/declarative_programming/r08-bucket/z3/bin/python
-export LD_LIBRARY_PATH=$LD_LIBRARY_PATH:~/Documents/aalto/declarative_programming/r08-bucket/z3/bin
-export CONTENTREPO_USER=user
-export CONTENTREPO_PASSWORD=crush-aim-artery-outside-yellow
+eval "$(direnv hook zsh)"
