@@ -25,41 +25,38 @@ echo -e "${YELLOW}--- Step ${STEP}/${NB_OF_STEPS}: Saving Homebrew’s installed
 BREW_PREFIX=$(brew --prefix)
 
 CASKS=(
-#  '1password'
-#  'android-platform-tools'
-#  'android-sdk'
-#  'android-studio'
-#  'docker'
-#  'firefox'
-#  'genymotion'
-#  'google-chrome'
+  '1password'
+  'android-platform-tools'
+  'android-sdk'
+  'android-studio'
+  'docker'
+  'google-chrome'
   'iterm2'
-#  'java'
-#  'microsoft-office'
-#  'nextcloud'
-#  'postico'
-#  'protonvpn'
-#  'react-native-debugger'
-#  'slack'
-#  'spectacle'
-#  'spotify'
-#  'telegram'
-#  'tunnelblick'
-#  'whatsapp'
-#  'dozer'
-#  'yabai'
-#  'skhd'
+  'microsoft-office'
+  'protonvpn'
+  'slack'
+  'spotify'
+  'telegram'
+  'tunnelblick'
+  'whatsapp'
+  'dozer'
+  'alfred',
+  'corretto8',
+  'intellij-idea'
 )
 
 DEPENDENCIES=(
   'awscli'
-  'heroku/brew/heroku'
   'python'
-  'postgres'
+  'postgresql'
   'yarn'
   'watchman'
-  'node'
-  'react-native-cli'
+  'node',
+  'direnv',
+  'openjdk',
+  'terraform',
+  'yabai',
+  'skhd'
 )
 
 FONTS=(
