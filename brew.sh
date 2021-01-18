@@ -26,9 +26,6 @@ BREW_PREFIX=$(brew --prefix)
 
 CASKS=(
   '1password'
-  'android-platform-tools'
-  'android-sdk'
-  'android-studio'
   'docker'
   'google-chrome'
   'iterm2'
@@ -38,7 +35,6 @@ CASKS=(
   'spotify'
   'telegram'
   'tunnelblick'
-  'whatsapp'
   'dozer'
   'alfred',
   'corretto8',
@@ -54,7 +50,6 @@ DEPENDENCIES=(
   'node',
   'direnv',
   'openjdk',
-  'terraform',
   'yabai',
   'skhd'
 )

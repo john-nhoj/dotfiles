@@ -119,3 +119,6 @@ eval "$(direnv hook zsh)"
 # tabtab source for slss package
 # uninstall by removing these lines or running `tabtab uninstall slss`
 [[ -f /Users/jche/Documents/sanoma/html-paid-articles-api/node_modules/tabtab/.completions/slss.zsh ]] && . /Users/jche/Documents/sanoma/html-paid-articles-api/node_modules/tabtab/.completions/slss.zsh
+
+# Add RVM to PATH for scripting. Make sure this is the last PATH variable change.
+export PATH="$PATH:$HOME/.rvm/bin"
