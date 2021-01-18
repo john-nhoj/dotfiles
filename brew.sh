@@ -37,8 +37,9 @@ CASKS=(
   'tunnelblick'
   'dozer'
   'alfred',
-  'corretto8',
-  'intellij-idea'
+  'corretto',
+  'intellij-idea',
+  'visual-studio-code'
 )
 
 DEPENDENCIES=(
@@ -62,7 +63,7 @@ STEP=$(($STEP + 1))
 echo -e "${YELLOW}--- Step ${STEP}/${NB_OF_STEPS}: Installing softwares (cask)${NOCOLOR}"
 for CASK in "${CASKS[@]}"
 do
-  brew cask install ${CASK}
+  brew install --cask ${CASK}
 done
 
 STEP=$(($STEP + 1))
@@ -77,7 +78,7 @@ echo -e "${YELLOW}--- Step ${STEP}/${NB_OF_STEPS}: Installing fonts${NOCOLOR}"
 brew tap homebrew/cask-fonts
 for FONT in "${FONTS[@]}"
 do
-  brew cask install ${FONT}
+  brew install --cask ${FONT}
 done
 
 STEP=$(($STEP + 1))
