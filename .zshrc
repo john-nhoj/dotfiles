@@ -103,3 +103,4 @@ export NVM_DIR="$HOME/.nvm"
 
 eval "$(direnv hook zsh)"
 
+export PATH=~/Library/Python/3.9/bin:$PATH
