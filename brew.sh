@@ -39,7 +39,8 @@ CASKS=(
   'alfred',
   'corretto',
   'intellij-idea',
-  'visual-studio-code'
+  'visual-studio-code',
+  'figma'
 )
 
 DEPENDENCIES=(
