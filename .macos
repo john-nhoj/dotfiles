@@ -86,3 +86,16 @@ defaults write com.apple.menuextra.clock ShowSeconds -bool true
 
 # Enable repeating keys for Vim extension
 defaults write com.microsoft.VSCodeInsiders ApplePressAndHoldEnabled -bool false
+
+###############################################################################
+# Rectangle                                                                   #
+###############################################################################
+
+# Add margins around windows
+defaults write com.knollsoft.Rectangle snapEdgeGapTop -int 5
+defaults write com.knollsoft.Rectangle snapEdgeGapBottom -int 5
+defaults write com.knollsoft.Rectangle snapEdgeGapLeft -int 5
+defaults write com.knollsoft.Rectangle snapEdgeGapRight -int 5
+
+# Add gap between windows
+defaults write com.knollsoft.Rectangle gapSize -int 10
