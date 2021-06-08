@@ -22,7 +22,6 @@ brew upgrade
 
 STEP=$(($STEP + 1))
 echo -e "${YELLOW}--- Step ${STEP}/${NB_OF_STEPS}: Saving Homebrew’s installed location${NOCOLOR}"
-BREW_PREFIX=$(brew --prefix)
 
 CASKS=(
   '1password'
@@ -36,11 +35,12 @@ CASKS=(
   'telegram'
   'tunnelblick'
   'dozer'
-  'alfred',
-  'corretto',
-  'intellij-idea',
-  'visual-studio-code',
+  'alfred'
+  'corretto'
+  'intellij-idea'
+  'visual-studio-code'
   'figma'
+  'rectangle'
 )
 
 DEPENDENCIES=(
@@ -49,11 +49,9 @@ DEPENDENCIES=(
   'postgresql'
   'yarn'
   'watchman'
-  'node',
-  'direnv',
-  'openjdk',
-  'yabai',
-  'skhd'
+  'node'
+  'direnv'
+  'openjdk'
 )
 
 FONTS=(
