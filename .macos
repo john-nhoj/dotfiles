@@ -36,9 +36,6 @@ defaults write com.apple.dock minimize-to-application -bool true
 # Possible values: manual, always, fullscreen
 defaults write com.apple.dock windowtabbing -string always
 
-# Set persistent apps
-defaults write com.apple.dock persistent-apps -array-add '{"tile-data" = { "label" = "Spotify"; "file-type" = 1 }; "tile-type" = "file-tile"; }'
-defaults write com.apple.dock persistent-apps -array-add '{tile-data={label="Spotify"; "file-type" = 1}; tile-type="file-tile";}'
 ###############################################################################
 # Mission Control                                                             #
 ###############################################################################
@@ -65,9 +62,6 @@ defaults write com.apple.Finder AppleShowAllFiles true
 
 # Enable dragging with 3 fingers
 defaults write com.apple.AppleMultitouchTrackpad TrackpadThreeFingerDrag -bool true
-
-# Set the touch bar controls
-com.apple.controlstrip
 
 ###############################################################################
 # Menu bar                                                                    #
