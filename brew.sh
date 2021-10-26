@@ -52,6 +52,7 @@ DEPENDENCIES=(
   'node'
   'direnv'
   'openjdk'
+  'nvm'
 )
 
 FONTS=(
