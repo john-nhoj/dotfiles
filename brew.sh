@@ -12,7 +12,7 @@ STEP=$(($STEP + 1))
 echo -e "${YELLOW}--- Step ${STEP}/${NB_OF_STEPS}: Installing brew${NOCOLOR}"
 echo -e "${YELLOW}DISCLAIMER: You will have to enter your pasword 8 times in a row to install Homebrew${NOCOLOR}"
 if [ ! $(brew --version) ]; then
-  /usr/bin/ruby -e "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/master/install)"
+  /bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/HEAD/install.sh)"
 fi
 
 STEP=$(($STEP + 1))
