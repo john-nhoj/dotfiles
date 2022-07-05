@@ -24,7 +24,7 @@ defaults write com.apple.dock autohide-delay -float 0
 defaults write com.apple.dock show-recents -bool false
 
 # Set magnification (default to false)
-defaults write com.apple.dock magnification -bool false
+defaults write com.apple.dock magnification -bool true
 
 # Set magnified icon size
 defaults write com.apple.dock largesize -int 50
@@ -62,6 +62,9 @@ defaults write com.apple.Finder AppleShowAllFiles true
 
 # Enable dragging with 3 fingers
 defaults write com.apple.AppleMultitouchTrackpad TrackpadThreeFingerDrag -bool true
+
+# Enable tap to click
+defaults write com.apple.AppleMultitouchTrackpad Clicking -bool true
 
 ###############################################################################
 # Menu bar                                                                    #

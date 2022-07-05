@@ -13,6 +13,8 @@ echo -e "${YELLOW}--- Step ${STEP}/${NB_OF_STEPS}: Installing brew${NOCOLOR}"
 echo -e "${YELLOW}DISCLAIMER: You will have to enter your pasword 8 times in a row to install Homebrew${NOCOLOR}"
 if [ ! $(brew --version) ]; then
   /bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/HEAD/install.sh)"
+  echo 'eval "$(/opt/homebrew/bin/brew shellenv)"' >> ~/.zprofile
+  eval "$(/opt/homebrew/bin/brew shellenv)"
 fi
 
 STEP=$(($STEP + 1))
@@ -27,36 +29,30 @@ CASKS=(
   '1password'
   'docker'
   'google-chrome'
-  'iterm2'
-  'microsoft-office'
   'protonvpn'
   'slack'
-  'spotify'
   'telegram'
-  'tunnelblick'
-  'dozer'
-  'alfred'
-  'corretto'
-  'intellij-idea'
-  'visual-studio-code'
   'figma'
-  'rectangle'
+  'rectangle',
+  'notion',
+  'discord',
+  'jetbrains-toolbox'
 )
 
 DEPENDENCIES=(
   'awscli'
-  'python'
   'postgresql'
   'yarn'
   'watchman'
   'node'
   'direnv'
-  'openjdk'
-  'nvm'
+  'nvm',
+  'gh'
 )
 
 FONTS=(
-  'font-fira-code'
+  # 'font-fira-code',
+  'font-jetbrains-mono'
 )
 
 STEP=$(($STEP + 1))
@@ -80,9 +76,5 @@ for FONT in "${FONTS[@]}"
 do
   brew install --cask ${FONT}
 done
-
-STEP=$(($STEP + 1))
-echo -e "${YELLOW}--- Step ${STEP}/${NB_OF_STEPS}: Starting services${NOCOLOR}"
-brew services start yabai skhd
 
 brew cleanup
