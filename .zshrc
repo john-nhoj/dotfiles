@@ -105,8 +105,8 @@ export JAVA_HOME="/Library/Java/JavaVirtualMachines/amazon-corretto-8.jdk/Conten
 export PATH=~/Library/Python/3.9/bin:$PATH
 
 # Add Google Cloud SDK
-source "$(brew --prefix)/Caskroom/google-cloud-sdk/latest/google-cloud-sdk/path.zsh.inc"
-source "$(brew --prefix)/Caskroom/google-cloud-sdk/latest/google-cloud-sdk/completion.zsh.inc"
+# source "$(brew --prefix)/Caskroom/google-cloud-sdk/latest/google-cloud-sdk/path.zsh.inc"
+# source "$(brew --prefix)/Caskroom/google-cloud-sdk/latest/google-cloud-sdk/completion.zsh.inc"
 
 eval "$(direnv hook zsh)"
 

@@ -7,13 +7,9 @@ NOCOLOR="\033[0m"
 echo -e "${RED}==> Linking root configurations${NOCOLOR}"
 
 function doIt() {
-	for file in $(ls -A | grep -E -vi '.sh|.git|README|.macos|com.googlecode.iterm2.plist|tmp')
+	for file in $(ls -A | grep -E -vi '.sh|.git|README|.macos|tmp')
   do
     ln -s "${BASEDIR}"/"${file}" ~/"${file}"
-  done
-  for app in "iTerm2" \
-    "Terminal"; do
-    killall "${app}" &> /dev/null
   done
 }
 

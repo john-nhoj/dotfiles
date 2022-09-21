@@ -11,10 +11,10 @@ echo -e "${YELLOW}==> Brew${NOCOLOR}"
 STEP=$(($STEP + 1))
 echo -e "${YELLOW}--- Step ${STEP}/${NB_OF_STEPS}: Installing brew${NOCOLOR}"
 echo -e "${YELLOW}DISCLAIMER: You will have to enter your pasword 8 times in a row to install Homebrew${NOCOLOR}"
-if [ ! $(brew --version) ]; then
+if [ ! "$(brew --version)" ]; then
   /bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/HEAD/install.sh)"
-  echo 'eval "$(/opt/homebrew/bin/brew shellenv)"' >> ~/.zprofile
-  eval "$(/opt/homebrew/bin/brew shellenv)"
+#  echo 'eval "$(/opt/homebrew/bin/brew shellenv)"' >> ~/.zprofile
+#  eval "$(/opt/homebrew/bin/brew shellenv)"
 fi
 
 STEP=$(($STEP + 1))
@@ -26,32 +26,31 @@ STEP=$(($STEP + 1))
 echo -e "${YELLOW}--- Step ${STEP}/${NB_OF_STEPS}: Saving Homebrew’s installed location${NOCOLOR}"
 
 CASKS=(
-  '1password'
-  'docker'
-  'google-chrome'
-  'protonvpn'
-  'slack'
-  'telegram'
-  'figma'
-  'rectangle',
-  'notion',
-  'discord',
-  'jetbrains-toolbox'
+#  'docker'
+#  'google-chrome'
+#  'protonvpn'
+#  'slack'
+#  'telegram'
+#  'figma'
+#  'rectangle'
+#  'notion'
+#  'discord'
+#  'jetbrains-toolbox'
+#  'bitwarden'
 )
 
 DEPENDENCIES=(
-  'awscli'
-  'postgresql'
-  'yarn'
-  'watchman'
-  'node'
-  'direnv'
-  'nvm',
-  'gh'
+#  'awscli'
+#  'postgresql'
+#  'yarn'
+#  'watchman'
+#  'node'
+#  'direnv'
+#  'nvm'
+#  'gh'
 )
 
 FONTS=(
-  # 'font-fira-code',
   'font-jetbrains-mono'
 )
 
