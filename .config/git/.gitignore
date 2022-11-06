@@ -1,0 +1,15 @@
+# Node
+npm-debug.log
+
+# Mac
+.DS_Store
+
+# Jetbrains
+.idea/
+
+# Direnv
+.envrc
+
+# Mobal
+.env.docker
+create_superuser.py
