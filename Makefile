@@ -12,11 +12,11 @@ clean: $(foreach f, $(DOT_FILES), unlink-dot-file-$(f))
 link: $(foreach f, $(DOT_FILES), link-dot-file-$(f))
 
 unlink-dot-file-%: %
-	echo "Remove Symlink $(HOME)/$<"
+	@echo "Remove Symlink $(HOME)/$<"
 	$(RM) $(HOME)/$<
 
 link-dot-file-%: %
-	echo "Create Symlink $< => $(HOME)/$<"
+	@echo "Create Symlink $< => $(HOME)/$<"
 	ln -snf $(CURDIR)/$< $(HOME)/$<
 
 #### Homebrew
@@ -29,26 +29,26 @@ homebrew:
 	install-formulas
 
 install-brew:
-	echo "START -- Installing homebrew"
+	@echo "START -- Installing homebrew"
 	/bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/HEAD/install.sh)"
-	echo "END -- Installing homebrew"
+	@echo "END -- Installing homebrew"
 
 bootstrap-brew:
-	echo "START -- Bootstrapping homebrew"
+	@echo "START -- Bootstrapping homebrew"
 	echo 'eval "$(/opt/homebrew/bin/brew shellenv)"' >> ~/.zprofile
 	eval "$(/opt/homebrew/bin/brew shellenv)"
-	echo "END -- Bootstrapping homebrew"
+	@echo "END -- Bootstrapping homebrew"
 
 update-brew:
-	echo "START -- Updating homebrew"
+	@echo "START -- Updating homebrew"
 	brew update
 	echo "END -- Updating homebrew"
 	brew "START -- Upgrading homebrew dependencies"
 	brew upgrade
-	brew "END -- Upgrading homebrew dependencies"
+	@echo "END -- Upgrading homebrew dependencies"
 
 install-casks:
-	echo "START -- Installing casks"
+	@echo "START -- Installing casks"
 	brew install --cask google-chrome
 	brew install --cask protonvpn
 	brew install --cask telegram
@@ -62,10 +62,10 @@ install-casks:
 	brew install --cask bitwarden
 	brew install --cask stats
 	brew install --cask toggl-track
-	echo "END -- Installing casks"
+	@echo "END -- Installing casks"
 
 install-formulas:
-	brew "START -- Installing formulas"
+	@echo "START -- Installing formulas"
 	brew install awscli
 	brew install postgresql
 	brew install yarn
@@ -73,7 +73,7 @@ install-formulas:
 	brew install node
 	brew install direnv
 	brew install nvm
-	brew "END -- Installing formulas"
+	@echo "END -- Installing formulas"
 
 #### ZSH
 
