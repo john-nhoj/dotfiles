@@ -62,6 +62,7 @@ install-casks:
 	brew install --cask bitwarden
 	brew install --cask stats
 	brew install --cask toggl-track
+	brew install --cask flutter
 	@echo "END -- Installing casks"
 
 install-formulas:
