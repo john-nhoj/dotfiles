@@ -38,6 +38,7 @@ CASKS=(
 #  'jetbrains-toolbox'
 #  'bitwarden'
 #  'stats'
+#  'toggl-track'
 )
 
 DEPENDENCIES=(
