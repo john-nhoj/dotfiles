@@ -73,6 +73,7 @@ install-formulas:
 	brew install node
 	brew install direnv
 	brew install nvm
+	brew install dockutil
 	@echo "END -- Installing formulas"
 
 #### ZSH
