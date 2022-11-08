@@ -1,4 +1,29 @@
 # dotfiles
 
-1. Run `bootstrap.sh`
-2. Run `install.sh`
+### For the courageous ones
+
+```shell
+make all
+```
+
+### Step by step
+
+- Homebrew
+  ```shell
+  make homebrew
+  ```
+
+- zsh
+  ```shell
+  make zsh
+  ```
+  
+- Apple defaults
+  ```shell
+  make bootstrap-apple-defaults
+  ```
+
+- symlinks
+  ```shell
+  make link
+  ```
