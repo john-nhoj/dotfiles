@@ -7,8 +7,11 @@ npm-debug.log
 # Jetbrains
 .idea/
 
-# Direnv
+# Environment variables
 .envrc
+.env
+.env.*
+!.env.example
 
 # Mobal
 .env.docker
