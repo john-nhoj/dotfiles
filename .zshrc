@@ -64,7 +64,21 @@ ZSH_THEME="robbyrussell"
 # Custom plugins may be added to ~/.oh-my-zsh/custom/plugins/
 # Example format: plugins=(rails git textmate ruby lighthouse)
 # Add wisely, as too many plugins slow down shell startup.
-plugins=(aws docker-compose docker git node npm pip python yarn zsh-autosuggestions zsh-syntax-highlighting)
+plugins=(
+  aws
+  docker-compose
+  docker
+  dotenv
+  git
+  node
+  npm
+  pip
+  python
+  yarn
+  # Custom plugins
+  zsh-autosuggestions
+  zsh-syntax-highlighting
+)
 
 source $ZSH/oh-my-zsh.sh
 
@@ -107,6 +121,4 @@ export NVM_DIR="$HOME/.nvm"
 # Add Google Cloud SDK
 # source "$(brew --prefix)/Caskroom/google-cloud-sdk/latest/google-cloud-sdk/path.zsh.inc"
 # source "$(brew --prefix)/Caskroom/google-cloud-sdk/latest/google-cloud-sdk/completion.zsh.inc"
-
-eval "$(direnv hook zsh)"
 
