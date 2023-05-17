@@ -3,27 +3,31 @@
 ### For the courageous ones
 
 ```shell
-make all
+./install.sh
 ```
 
 ### Step by step
 
 - Homebrew
   ```shell
-  make homebrew
+  ./brew.sh
   ```
 
 - zsh
   ```shell
-  make zsh
+  ./zsh.sh
   ```
-  
+- Git
+  ```shell
+  ./git.sh
+  ```
+
 - Apple defaults
   ```shell
-  make bootstrap-apple-defaults
+  ./.macos
   ```
 
 - symlinks
   ```shell
-  make link
+  ./.symlinks.sh
   ```

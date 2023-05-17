@@ -4,8 +4,9 @@ npm-debug.log
 # Mac
 .DS_Store
 
-# Jetbrains
-.idea/
+# IDE
+.idea
+.vscode
 
 # Environment variables
 .envrc
