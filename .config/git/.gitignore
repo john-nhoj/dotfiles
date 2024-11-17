@@ -1,19 +1,6 @@
 # Node
 npm-debug.log
 
-# Mac
-.DS_Store
-
 # IDE
 .idea
 .vscode
-
-# Environment variables
-.envrc
-.env
-.env.*
-!.env.example
-
-# Mobal
-.env.docker
-create_superuser.py
