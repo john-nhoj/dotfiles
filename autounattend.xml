@@ -249,6 +249,18 @@
           <Order>59</Order>
           <Path>cmd.exe /c echo 0 >> X:\Sources\ei.cfg</Path>
         </RunSynchronousCommand>
+        <RunSynchronousCommand wcm:action="add">
+          <Order>60</Order>
+          <Path>reg.exe add "HKCU\SOFTWARE\Microsoft\Windows\CurrentVersion\Themes\Personalize" /v EnableTransparency /t REG_DWORD /d 1 /f</Path>
+        </RunSynchronousCommand>
+        <RunSynchronousCommand wcm:action="add">
+          <Order>61</Order>
+          <Path>reg.exe add "HKCU\SOFTWARE\Microsoft\Lighting" /v UseSystemAccentColor /t REG_DWORD /d 1 /f</Path>
+        </RunSynchronousCommand>
+        <RunSynchronousCommand wcm:action="add">
+          <Order>62</Order>
+          <Path>reg.exe add "HKCU\SOFTWARE\Microsoft\Windows\CurrentVersion\Themes\AccentColor" /t REG_DWORD /d 0x8E6E58 /f</Path>
+        </RunSynchronousCommand>
       </RunSynchronous>
     </component>
     <component name="Microsoft-Windows-Setup" processorArchitecture="arm64" publicKeyToken="31bf3856ad364e35" language="neutral" versionScope="nonSxS">
@@ -497,6 +509,18 @@
           <Order>59</Order>
           <Path>cmd.exe /c echo 0 >> X:\Sources\ei.cfg</Path>
         </RunSynchronousCommand>
+        <RunSynchronousCommand wcm:action="add">
+          <Order>60</Order>
+          <Path>reg.exe add "HKCU\SOFTWARE\Microsoft\Windows\CurrentVersion\Themes\Personalize" /v EnableTransparency /t REG_DWORD /d 1 /f</Path>
+        </RunSynchronousCommand>
+        <RunSynchronousCommand wcm:action="add">
+          <Order>61</Order>
+          <Path>reg.exe add "HKCU\SOFTWARE\Microsoft\Lighting" /v UseSystemAccentColor /t REG_DWORD /d 1 /f</Path>
+        </RunSynchronousCommand>
+        <RunSynchronousCommand wcm:action="add">
+          <Order>62</Order>
+          <Path>reg.exe add "HKCU\SOFTWARE\Microsoft\Windows\CurrentVersion\Themes\AccentColor" /t REG_DWORD /d 0x8E6E58 /f</Path>
+        </RunSynchronousCommand>
       </RunSynchronous>
     </component>
     <component name="Microsoft-Windows-Setup" processorArchitecture="amd64" publicKeyToken="31bf3856ad364e35" language="neutral" versionScope="nonSxS">
@@ -744,6 +768,18 @@
         <RunSynchronousCommand wcm:action="add">
           <Order>59</Order>
           <Path>cmd.exe /c echo 0 >> X:\Sources\ei.cfg</Path>
+        </RunSynchronousCommand>
+        <RunSynchronousCommand wcm:action="add">
+          <Order>60</Order>
+          <Path>reg.exe add "HKCU\SOFTWARE\Microsoft\Windows\CurrentVersion\Themes\Personalize" /v EnableTransparency /t REG_DWORD /d 1 /f</Path>
+        </RunSynchronousCommand>
+        <RunSynchronousCommand wcm:action="add">
+          <Order>61</Order>
+          <Path>reg.exe add "HKCU\SOFTWARE\Microsoft\Lighting" /v UseSystemAccentColor /t REG_DWORD /d 1 /f</Path>
+        </RunSynchronousCommand>
+        <RunSynchronousCommand wcm:action="add">
+          <Order>62</Order>
+          <Path>reg.exe add "HKCU\SOFTWARE\Microsoft\Windows\CurrentVersion\Themes\AccentColor" /t REG_DWORD /d 0x8E6E58 /f</Path>
         </RunSynchronousCommand>
       </RunSynchronous>
     </component>
@@ -1103,7 +1139,7 @@ exit
     </File>
     <File path="C:\Windows\Setup\Scripts\UWScript.ps1">
       <![CDATA[
-      # Check if script is running as Administrator
+# Check if script is running as Administrator
 If (!([Security.Principal.WindowsPrincipal][Security.Principal.WindowsIdentity]::GetCurrent()).IsInRole([Security.Principal.WindowsBuiltInRole]"Administrator")) {
     Try {
         Start-Process PowerShell.exe -ArgumentList ("-NoProfile -ExecutionPolicy Bypass -File `"{0}`"" -f $PSCommandPath) -Verb RunAs
@@ -1125,41 +1161,41 @@ Clear-Host
 # Center the PowerShell window
 $psWindow = Get-Process -Id $pid | ForEach-Object { $_.MainWindowHandle }
 Add-Type @"
-using System;
-using System.Runtime.InteropServices;
-public class WindowCentering {
-    [DllImport("user32.dll", SetLastError = true)]
-    public static extern bool GetWindowRect(IntPtr hWnd, out RECT lpRect);
-    
-    [DllImport("user32.dll", SetLastError = true)]
-    public static extern bool MoveWindow(IntPtr hWnd, int X, int Y, int nWidth, int nHeight, bool bRepaint);
-
-    [StructLayout(LayoutKind.Sequential)]
-    public struct RECT {
-        public int Left;
-        public int Top;
-        public int Right;
-        public int Bottom;
-    }
-
-    public static void CenterWindow(IntPtr hWnd) {
-        RECT rect;
-        GetWindowRect(hWnd, out rect);
-        int windowWidth = rect.Right - rect.Left;
-        int windowHeight = rect.Bottom - rect.Top;
+    using System;
+    using System.Runtime.InteropServices;
+    public class WindowCentering {
+        [DllImport("user32.dll", SetLastError = true)]
+        public static extern bool GetWindowRect(IntPtr hWnd, out RECT lpRect);
         
-        int screenWidth = GetSystemMetrics(0);
-        int screenHeight = GetSystemMetrics(1);
-        
-        int x = (screenWidth / 2) - (windowWidth / 2);
-        int y = (screenHeight / 2) - (windowHeight / 2);
+        [DllImport("user32.dll", SetLastError = true)]
+        public static extern bool MoveWindow(IntPtr hWnd, int X, int Y, int nWidth, int nHeight, bool bRepaint);
 
-        MoveWindow(hWnd, x, y, windowWidth, windowHeight, true);
+        [StructLayout(LayoutKind.Sequential)]
+        public struct RECT {
+            public int Left;
+            public int Top;
+            public int Right;
+            public int Bottom;
+        }
+
+        public static void CenterWindow(IntPtr hWnd) {
+            RECT rect;
+            GetWindowRect(hWnd, out rect);
+            int windowWidth = rect.Right - rect.Left;
+            int windowHeight = rect.Bottom - rect.Top;
+            
+            int screenWidth = GetSystemMetrics(0);
+            int screenHeight = GetSystemMetrics(1);
+            
+            int x = (screenWidth / 2) - (windowWidth / 2);
+            int y = (screenHeight / 2) - (windowHeight / 2);
+
+            MoveWindow(hWnd, x, y, windowWidth, windowHeight, true);
+        }
+
+        [DllImport("user32.dll")]
+        public static extern int GetSystemMetrics(int nIndex);
     }
-
-    [DllImport("user32.dll")]
-    public static extern int GetSystemMetrics(int nIndex);
-}
 "@
 
 [WindowCentering]::CenterWindow($psWindow)
@@ -1193,7 +1229,7 @@ function Show-MainMenu {
     $choice = Read-Host "Select an option (0-6)"
 
     switch ($choice) {
-        "1" { Show-SoftwareMenu }      # Call the Software & Apps menu
+        "1" { Show-SoftwareMenu } # Call the Software & Apps menu
         "2" { Show-PrivacySecurityMenu } # Call the Privacy & Security menu
         "3" { Show-WindowsUpdateMenu }  # Call the Windows Updates menu
         "4" { Show-OptimizeRegistryMenu } # Call the Optimize Registry menu
@@ -1290,13 +1326,14 @@ function Show-BrowserInstallMenu {
 }
 function Show-DeveloperToolsMenu {
     Show-Menu -menuTitle "Select Developer Tools to install" `
-        -options @("VSCode Insiders", "Docker Desktop", "Podman", "Windows WSL", "Ubuntu 24.04 LTS (WSL)")
+        -options @("VSCode Insiders", "Docker Desktop", "Podman", "Windows WSL", "Ubuntu 24.04 LTS (WSL)", "DBeaver")
         -actions @{
         "1" = { Install-AppWithWinGet -AppName "Microsoft.VisualStudioCode.Insiders" -FriendlyName "Microsoft Visual Studio Code Insiders" }
         "2" = { Install-AppWithWinGet -AppName "Docker.DockerDesktop" -FriendlyName "Docker Desktop" }
         "3" = { Install-AppWithWinGet -AppName "RedHat.Podman" -FriendlyName "Podman" }
         "4" = { Install-AppWithWinGet -AppName "Microsoft.WSL" -FriendlyName "Windows Subsystem for Linux" }
         "5" = { Install-AppWithWinGet -AppName "Canonical.Ubuntu.2404" -FriendlyName "Ubuntu 24.04 LTS" }
+        "6" = { Install-AppWithWinGet -AppName "dbeaver.dbeaver" -FriendlyName "DBeaver Community Edition" }
     } `
 }
 function Show-AppsInstallMenu {
@@ -1309,10 +1346,10 @@ function Show-AppsInstallMenu {
         "4" = { Install-AppWithWinGet -AppName "TheDocumentFoundation.LibreOffice" -FriendlyName "LibreOffice" }
         "5" = { Install-AppWithWinGet -AppName "RIA.DigiDoc4" -FriendlyName "DigiDoc4" }
         "6" = { Install-AppWithWinGet -AppName "Proton.ProtonPass" -FriendlyName "Proton Pass" }
-        "6" = { Install-AppWithWinGet -AppName "Proton.ProtonVPN" -FriendlyName "Proton VPN" }
-        "7" = { Install-AppWithWinGet -AppName "SlackTechnologies.Slack" -FriendlyName "Slack" }
-        "8" = { Install-AppWithWinGet -AppName "9NKSQGP7F2NH" -FriendlyName "WhatsApp" }
-        "9" = { Install-AppWithWinGet -AppName "Telegram.TelegramDesktop" -FriendlyName "Telegram Desktop" }
+        "7" = { Install-AppWithWinGet -AppName "Proton.ProtonVPN" -FriendlyName "Proton VPN" }
+        "8" = { Install-AppWithWinGet -AppName "SlackTechnologies.Slack" -FriendlyName "Slack" }
+        "9" = { Install-AppWithWinGet -AppName "9NKSQGP7F2NH" -FriendlyName "WhatsApp" }
+        "10" = { Install-AppWithWinGet -AppName "Telegram.TelegramDesktop" -FriendlyName "Telegram Desktop" }
     } `
 }
 function Show-GamingAppsInstallMenu {
@@ -2113,6 +2150,10 @@ Windows Registry Editor Version 5.00
 # End of Windows Update Functions
 
 # Start of Registry Optimizations
+<#
+.DESCRIPTION
+Set recommended registry optimization for Local Machine
+#>
 function Set-RecommendedHKLMRegistry {
     # Create Registry Keys
     $MultilineComment = @"
@@ -2367,6 +2408,10 @@ Windows Registry Editor Version 5.00
     Wait-IfNotSpecialize
 }
 
+<#
+.DESCRIPTION
+Sets default Local Machine Registry
+#>
 function Set-DefaultHKLMRegistry {
     # create reg file
     $MultilineComment = @"
@@ -2608,14 +2653,18 @@ Windows Registry Editor Version 5.00
     Wait-IfNotSpecialize
 }
 
-
+<#
+.DESCRIPTION
+Set the recommended registry optimization for Current User
+#>
 function Set-RecommendedHKCURegistry {
     Clear-Host
     Write-Host "Optimizing User Registry . . ."
 
-    # Set Wallpaper (Helper Function for Recommended User Settings)
-    $defaultWallpaperPath = "C:\Windows\Web\4K\Wallpaper\Windows\img0_3840x2160.jpg"
-    $darkModeWallpaperPath = "C:\Windows\Web\4K\Wallpaper\Windows\img19_1920x1200.jpg"
+    $url = "https://raw.githubusercontent.com/user/repo/branch/path-to-image.jpg"
+    $destinationPath = "C:\Temp\wallpaper.jpg"
+
+    Invoke-WebRequest -Uri $url -OutFile $destinationPath
 
     function Set-Wallpaper ($wallpaperPath) {
         reg.exe add "HKEY_CURRENT_USER\Control Panel\Desktop" /v Wallpaper /t REG_SZ /d "$wallpaperPath" /f | Out-Null
@@ -2623,20 +2672,8 @@ function Set-RecommendedHKCURegistry {
         rundll32.exe user32.dll, UpdatePerUserSystemParameters
     }
 
-    # Check Windows version
-    $windowsVersion = (Get-ItemProperty "HKLM:\SOFTWARE\Microsoft\Windows NT\CurrentVersion").CurrentBuild
-
-    # Apply appropriate wallpaper based on Windows version or existence of dark mode wallpaper
-    if ($windowsVersion -ge 22000) {
-        # Assuming Windows 11 starts at build 22000
-        if (Test-Path $darkModeWallpaperPath) {
-            Set-Wallpaper -wallpaperPath $darkModeWallpaperPath
-        }
-    }
-    else {
-        # Apply default wallpaper for Windows 10
-        Set-Wallpaper -wallpaperPath $defaultWallpaperPath
-    }
+    # Apply default wallpaper for Windows 10
+    Set-Wallpaper -wallpaperPath $destinationPath
 
     $MultilineComment = @"
 Windows Registry Editor Version 5.00
@@ -2787,17 +2824,17 @@ Windows Registry Editor Version 5.00
 "MouseThreshold2"="0"
 "MouseSensitivity"="10"
 "SmoothMouseXCurve"=hex:\
-	00,00,00,00,00,00,00,00,\
-	C0,CC,0C,00,00,00,00,00,\
-	80,99,19,00,00,00,00,00,\
-	40,66,26,00,00,00,00,00,\
-	00,33,33,00,00,00,00,00
+  00,00,00,00,00,00,00,00,\
+  C0,CC,0C,00,00,00,00,00,\
+  80,99,19,00,00,00,00,00,\
+  40,66,26,00,00,00,00,00,\
+  00,33,33,00,00,00,00,00
 "SmoothMouseYCurve"=hex:\
-	00,00,00,00,00,00,00,00,\
-	00,00,38,00,00,00,00,00,\
-	00,00,70,00,00,00,00,00,\
-	00,00,A8,00,00,00,00,00,\
-	00,00,E0,00,00,00,00,00
+  00,00,00,00,00,00,00,00,\
+  00,00,38,00,00,00,00,00,\
+  00,00,70,00,00,00,00,00,\
+  00,00,A8,00,00,00,00,00,\
+  00,00,E0,00,00,00,00,00
 
 ; SYSTEM AND SECURITY
 ; set appearance options to custom
@@ -3496,7 +3533,7 @@ function Set-ServiceStartup {
     'RemoteAccess', 'RemoteRegistry', 'shpamsvc', 
     'ssh-agent', 'tzautoupdate', 'uhssvc',
     'UevAgentService'
-	)
+	  )
 
     # List of services to set to Manual
     $manualServices = @(
