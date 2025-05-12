@@ -6,7 +6,7 @@ return {
 		--@type snacks.Config
 		opts = {
 			bigfile = { enabled = true },
-			dashboard = { 
+			dashboard = {
 				enabled = true,
 				example = "compact_files",
 			},
@@ -24,12 +24,12 @@ return {
 			quickfile = { enabled = true },
 			scope = { enabled = true },
 			statuscolumn = { enabled = true },
-			words = { enabled = true },
+			words = { enabled = false },
 			styles = {
 				notification = {
 					-- wo = { wrap = true } -- Wrap notifications
-				}
-			}	
+        }
+			}
 		},
 		keys = {
 			-- Top Pickers & Explorer
