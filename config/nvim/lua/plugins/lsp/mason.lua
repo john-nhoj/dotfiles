@@ -11,6 +11,8 @@ return {
       ensure_installed = {
         "eslint",
         "tflint",
+        "mypy",
+        "ruff",
       },
     })
     mLspconfig.setup({
