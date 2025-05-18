@@ -29,10 +29,46 @@ return {
             checkThirdParty = false,
           },
           telemetry = {
-            enable = false,  -- turn off telemetry
+            enable = false, -- turn off telemetry
           },
         },
       },
+    })
+
+    lspconfig.volar.setup({
+      init_options = {
+        typescript = {
+          -- tsdk = vim.fn.getcwd() .. "/node_modules/typescript/lib"
+          tsdk = '', -- Default option
+        },
+        languageFeatures = {
+          implementation = true,
+          references = true,
+          definition = true,
+          typeDefinition = true,
+        },
+      }
+    })
+
+    lspconfig.ts_ls.setup({
+      init_options = {
+        plugins = {
+          {
+            name = "@vue/typescript-plugin",
+            location = "/usr/local/lib/node_modules/@vue/typescript-plugin",
+            languages = {
+              "javascript",
+              "typescript",
+              "vue",
+            }
+          }
+        },
+      },
+      filetypes = {
+        "javascript",
+        "typescript",
+        "vue",
+      }
     })
 
     local signs = {
