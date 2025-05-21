@@ -29,7 +29,13 @@ return {
         enabled = true,
         timeout = 3000,
       },
-      picker = { enabled = true },
+      picker = {
+        enabled = true,
+        sources = {
+          explorer = { hidden = true, ignored = true },
+          files = { hidden = true, ignored = true }
+        }
+      },
       quickfile = { enabled = true },
       scope = { enabled = true },
       statuscolumn = { enabled = true },
