@@ -36,7 +36,7 @@ return {
     })
 
     local vue_language_server_path = vim.fn.expand '$MASON/packages' ..
-    '/vue-language-server' .. '/node_modules/@vue/language-server'
+        '/vue-language-server' .. '/node_modules/@vue/language-server'
     print(vue_language_server_path)
     lspconfig.ts_ls.setup({
       init_options = {
@@ -51,6 +51,8 @@ return {
       filetypes = {
         "javascript",
         "typescript",
+        "javascriptreact",
+        "typescriptreact",
         "vue",
       }
     })
