@@ -35,32 +35,16 @@ return {
       },
     })
 
-    lspconfig.volar.setup({
-      init_options = {
-        typescript = {
-          -- tsdk = vim.fn.getcwd() .. "/node_modules/typescript/lib"
-          tsdk = '', -- Default option
-        },
-        languageFeatures = {
-          implementation = true,
-          references = true,
-          definition = true,
-          typeDefinition = true,
-        },
-      }
-    })
-
+    local vue_language_server_path = vim.fn.expand '$MASON/packages' ..
+    '/vue-language-server' .. '/node_modules/@vue/language-server'
+    print(vue_language_server_path)
     lspconfig.ts_ls.setup({
       init_options = {
         plugins = {
           {
             name = "@vue/typescript-plugin",
-            location = "/usr/local/lib/node_modules/@vue/typescript-plugin",
-            languages = {
-              "javascript",
-              "typescript",
-              "vue",
-            }
+            location = vue_language_server_path,
+            languages = { "vue" },
           }
         },
       },
@@ -70,6 +54,8 @@ return {
         "vue",
       }
     })
+
+    lspconfig.volar.setup {}
 
     local signs = {
       [vim.diagnostic.severity.ERROR] = " ",
