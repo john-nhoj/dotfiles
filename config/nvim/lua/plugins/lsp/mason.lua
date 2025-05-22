@@ -26,7 +26,7 @@ return {
         "tailwindcss",
         "terraformls",
         "ts_ls",
-        "volar",
+        "vue_ls",
       },
     })
   end
