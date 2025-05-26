@@ -27,6 +27,7 @@ return {
         "terraformls",
         "ts_ls",
         "vue_ls",
+        "svelte",
       },
     })
   end
