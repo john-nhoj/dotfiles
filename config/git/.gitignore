@@ -14,6 +14,5 @@ npm-debug.log
 .env.*
 !.env.example
 
-# Mobal
-.env.docker
-create_superuser.py
+# Folder based config file
+.editorconfig
