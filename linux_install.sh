@@ -4,6 +4,7 @@
 
 # Software dependencies
 DEPENDENCIES=(
+  "terraform"      # Infrastructure as Code tools
 )
 
 SNAP_DEPENDENCIES=(
@@ -56,10 +57,35 @@ sudo apt install -y proton-vpn-gnome-desktop
 echo "Proton VPN installed. Installing tray icon support..."
 sudo apt install libayatana-appindicator3-1 gir1.2-ayatanaappindicator3-0.1 gnome-shell-extension-appindicator
 
+# Install OBS Studio
 echo "Installing OBS Studio..."
 sudo add-apt-repository ppa:obsproject/obs-studio
 sudo apt update
 sudo apt install -y obs-studio
+
+# Installing pnpm
+echo "Installing pnpm..."
+if ! command -v pnpm &> /dev/null; then
+  curl -fsSL https://get.pnpm.io/install.sh | sh -
+else
+  echo "pnpm is already installed."
+fi
+
+# Installing nvm
+echo "Installing nvm..."
+if [ ! -d "$HOME/.nvm" ]; then
+  PROFILE=/dev/null bash -c 'curl -o- https://raw.githubusercontent.com/nvm-sh/nvm/v0.40.3/install.sh | bash'
+else
+  echo "nvm is already installed."
+fi
+
+# Installing pyenv
+echo "Installing pyenv..."
+if [ ! -d "$HOME/.pyenv" ]; then
+  curl -fsSL https://pyenv.run | bash
+else
+  echo "pyenv is already installed."
+fi
 
 # Install oh-my-bash
 if [ ! -d "$HOME/.oh-my-bash" ]; then
